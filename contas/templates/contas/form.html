@@ -9,18 +9,28 @@
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid bg-dark fundao">
-    <div class="form-control">
-        <h1>Adicione um novo evento</h1>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" class="btn btn-success" value="Criar Evento">
-            {% if evento %}
-            <button class="btn btn-success"><a href="{% url 'deletar' evento.id  %}">Remover</a></button>
-            {% endif %}
-            <button class="btn btn-success"><a href="{% url 'todos_eventos' %}">Voltar</a></button>
-        </form>
+{% if user.is_authenticated %}
+    <div class="container-fluid bg-dark fundao">
+        <div class="form-control">
+            <h1>Adicione um novo evento</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if evento %}
+                    <input type="submit" class="btn btn-success" value="Atualizar Evento">
+                    <button class="btn btn-success"><a href="{% url 'deletar' evento.id  %}">Remover</a></button>
+                {% else %}
+                    <input type="submit" class="btn btn-success" value="Criar Evento">
+                {% endif %}
+                    <button class="btn btn-success"><a href="{% url 'todos_eventos' %}">Voltar</a></button>
+            </form>
+        </div>
     </div>
-</div>
+{% else %}
+    <div>{{evento.data.date}}</div>
+    <div>{{evento.data.time}}</div>
+    <div>{{evento.show}}</div>
+    <div>{{evento.categoria}}</div>
+    <div>{{evento.valor}}</div>
+{% endif %}
 {% endblock %}

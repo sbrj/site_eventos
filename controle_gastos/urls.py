@@ -20,7 +20,6 @@ from contas.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listagem, name='todos_eventos'),
-    path('', include('django.contrib.auth.urls')),
     path('novo/', novo_evento, name='novo_even'),
     path('update/<int:id>/', update, name='atualizar'),
     path('delete/<int:id>/', delete, name='deletar'),
