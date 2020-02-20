@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="bg-dark fundao conteudo container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block;">
-    <h1>Qualquer coisa de H1</h1>
-    <div>Qualquer coisa escrita</div>
+<div class="bg-dark fundao container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block; color: antiquewhite;">
+    {% for post in posts %}
+        <p>Publicado em: {{ post.data_publicacao }}</p>
+        <h2>{{ post.title }}</h1>
+        <p>{{ post.texto|linebreaksbr }}</p>
+    {% endfor %}
 </div>
 {% endblock %}
 

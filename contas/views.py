@@ -1,17 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Evento, Email
+from django.utils import timezone
+from .models import Evento, Email, Post
 from .forms import EventoForm, EmailForm
 import datetime
-
-def home(request):
-    data = {} 
-    data['eventos'] = ['ev1', 'ev2', 'ev3']
-
-    data['now'] = datetime.datetime.now()
-    # html = "<html><body>It is now %s.</body></html>" % now
-
-    return render(request, 'contas/home.html', data)
 
 def novo_evento(request):
     data = {}
@@ -52,4 +44,5 @@ def listagem(request):
     return render(request, 'contas/listagem.html', data)
 
 def postagens(request):
-    return render(request, 'contas/postagens.html', {})
+    posts = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by('data_publicacao')
+    return render(request, 'contas/postagens.html', {'posts': posts})
