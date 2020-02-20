@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {% if evento %}
+        Show {{evento.show}}
+    {% else %}
+        Novo evento
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+  
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static "imgs/la.jpg" %}" alt="Los Angeles">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static "imgs/chicago.jpg" %}" alt="Chicago">
+        </div>
+        <div class="carousel-item">
+        <img src="{% static "imgs/ny.jpg" %}" alt="New York">
+        </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>  
+</div>
+
+<div class="fundao">
+    <div class="conteudo container-fluid">
+        <div class="row justify-content-md-center base_titulo">
+            <h3>Próximos eventos</h3>
+            <span class="caption_titulo_separador">/</span>    
+            <div class="caption_titulo">Obrigado por nos visitar!</div>
+        </div>
+        <div class="caption_eventos"><a href="{% url 'todos_eventos' %}">Ver todos eventos</a></div>
+        <div class="table-responsive-md">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Horário</th>
+                        <th scope="col">Nome/Evento/Show</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Valor em R$</th>
+                    </tr>
+                </thead>
+                <tbody class="corpo-tabela">
+                    {% for evento in eventos %}
+                    <tr>
+                        <th scope="row"><a href="{% url 'atualizar' evento.id %}">{{evento.data.date}}</a></th>
+                        <td><a href="{% url 'atualizar' evento.id %}">{{evento.data.time}}</a></td>
+                        <td><a href="{% url 'atualizar' evento.id %}">{{evento.show}}</a></td>
+                        <td><a href="{% url 'atualizar' evento.id %}">{{evento.categoria}}</a></td>
+                        <td><a href="{% url 'atualizar' evento.id %}">{{evento.valor}}</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{% url 'novo_even' %}">Criar Novo Evento</a>
+    </div>
+    <footer class="footer fundao">
+        <div class="container-fluid">
+            <div class="footer-linha row">
+                <div class="footer-bloco col-md text-center">
+                    <div class="form-group">
+                        <p class="col-md">Digite seu endereço de e-mail para assinar este blog e receber notificações de novas publicações por e-mail.</p>
+                        <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu email.</small>
+                        <form method="POST">
+                        {% csrf_token %}
+                        {{ email_html }}
+                        <input type="submit" class="btn btn-success" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bloco col-md text-center">
+                    Pesquise por Show
+                </div>
+                <div class="footer-bloco col-md text-center">
+                    Facebook Beco das garrafas
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+{% endblock %}

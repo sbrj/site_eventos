@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if evento %}
+        Show {{evento.show}}
+    {% else %}
+        Novo evento
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-dark fundao">
+    <div class="form-control">
+        <h1>Adicione um novo evento</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Criar Evento">
+            {% if evento %}
+            <button class="btn btn-success"><a href="{% url 'deletar' evento.id  %}">Remover</a></button>
+            {% endif %}
+            <button class="btn btn-success"><a href="{% url 'todos_eventos' %}">Voltar</a></button>
+        </form>
+    </div>
+</div>
+{% endblock %}

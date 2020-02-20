@@ -1,0 +1,180 @@
+.container-fluid {
+    padding: 0;
+}
+
+.container-fluid .row {
+    margin: 0;
+}
+
+.container.dashboard {
+    padding-top: 10px;
+}
+
+/* Navbar */
+
+.fundo-barra {
+    opacity: 0.5;
+    height: 10%;
+}
+.navbar-nav {
+    margin: auto;
+    height: 100%;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-brand a {
+    color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    letter-spacing: 1px;    
+    text-transform: uppercase;
+    outline: 0;
+    font: bold 12px Verdana;
+    transition-property: color, background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #333;
+    background-color: #fff;
+    transition-property: color, background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+/* Background */
+
+.fundao {
+    text-align: center;
+    background-color: #343a40;
+    min-height: 300px;
+    height: auto;
+}
+
+.fundao ul li {
+    padding-top: 1%;
+}
+
+.fundao ul li a {
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.table th {
+    border: none !important;
+    border-color: unset;
+}
+
+.table td {
+    border: none !important;
+    border-color: unset;
+}
+
+.base_titulo {
+    padding: 0;
+    display: inline;
+}
+
+.base_titulo h3 {
+    margin: 0;
+    display: inline;
+    font-family: open-sans;
+    color: white;
+}
+
+.caption_titulo {
+    margin: 0;
+    display: inline;
+    vertical-align: baseline;
+    color: #74c6de;
+    font-size: 20px;
+}
+
+.caption_titulo_separador {
+    font-size: 20px;
+    margin: 0px 14px;
+    vertical-align: baseline;
+    color: white;
+}
+
+.caption_eventos {
+    margin: 14px 0px;
+    font-size: 14px;
+}
+
+.caption_eventos a {
+    text-decoration: none;
+}
+
+.conteudo {
+    padding-top: 2%;
+}
+
+.conteudo a {
+    color: aliceblue;
+}
+
+.corpo-tabela a {
+    text-decoration: none;
+}
+
+th {
+    width: 20%;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Form */
+
+.footer {
+    background-color: black;
+    margin-top: 40px;
+}
+
+.form-group small {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+
+.footer-linha {
+    border-top: #74c6de;
+    border-top-width: 1px;
+    border-top-style: solid;
+    
+}
+
+.footer-bloco {
+    padding-top: 30px;
+    color: #fff;
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+ No media query since this is the default in Bootstrap*/
+
+/* Small devices (landscape phones, 576px and up)*/
+#@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up)*/
+#@media (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up)*/
+#@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (max-width: 768px) {
+    .fundo-barra {
+        display: none;
+    }
+}
