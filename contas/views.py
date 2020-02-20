@@ -49,3 +49,6 @@ def listagem(request):
         return redirect('todos_eventos')
     data['email_html'] = email_form    
     return render(request, 'contas/listagem.html', data)
+
+def postagens(request):
+    return render(request, 'contas/postagens.html', {})

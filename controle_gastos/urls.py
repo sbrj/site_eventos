@@ -23,5 +23,6 @@ urlpatterns = [
     path('novo/', novo_evento, name='novo_even'),
     path('update/<int:id>/', update, name='atualizar'),
     path('delete/<int:id>/', delete, name='deletar'),
+    path('posts/', postagens, name='postagens'),
     path('home/', home),
 ]
