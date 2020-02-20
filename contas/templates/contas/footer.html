@@ -1,0 +1,23 @@
+<footer class="footer fundao">
+    <div class="container-fluid">
+        <div class="footer-linha row">
+            <div class="footer-bloco col-md text-center">
+                <div class="form-group">
+                    <p class="col-md">Digite seu endereço de e-mail para assinar este blog e receber notificações de novas publicações por e-mail.</p>
+                    <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu email.</small>
+                    <form method="POST">
+                    {% csrf_token %}
+                    {{ email_html }}
+                    <input type="submit" class="btn btn-success" value="Enviar">
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bloco col-md text-center">
+                Pesquise por Show
+            </div>
+            <div class="footer-bloco col-md text-center">
+                Facebook Beco das garrafas
+            </div>
+        </div>
+    </div>
+</footer>
