@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    {% if evento %}
-        Show {{evento.show}}
-    {% else %}
-        Novo evento
+    {% if post %}
+        {{post.title}}
     {% endif %}
 {% endblock %}  
 {% block content %}
-<div class="bg-dark fundao container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block; color: antiquewhite;">
-        <p>Publicado em: {{ post.data_publicacao }}</p>
-        <h2>{{ post.title }}</h1>
-        <p>{{ post.texto|linebreaksbr }}</p>
+<div class="post bg-dark text-white">
+    {% if post.data_publicacao %}
+        <div class="date">
+            <p>Publicado em: {{ post.data_publicacao }}</p>
+        </div>
+    {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p class="col-md-8">{{ post.texto|linebreaksbr }}</p>
+</div>
 </div>
 {% endblock %}

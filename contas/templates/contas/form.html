@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block title %}
     {% if evento %}
         Show {{evento.show}}
@@ -7,7 +6,6 @@
         Novo evento
     {% endif %}
 {% endblock %}
-
 {% block content %}
 {% if user.is_authenticated %}
     <div class="container-fluid bg-dark fundao">

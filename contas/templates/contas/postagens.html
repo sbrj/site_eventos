@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    Todas as Postagens
+{% endblock %}
 {% block content %}
-<div class="bg-dark fundao container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block; color: antiquewhite;">
-    {% for post in posts %}
-        <p><a href="{% url 'post' post.id %}">Publicado em: {{ post.data_publicacao }}</a></p>
-        <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h1>
-        <p><a href="{% url 'post' post.id %}">{{ post.texto|linebreaksbr }}</a></p>
-    {% endfor %}
+<div class="content container-fluid bg-dark">
+    <div class="row">
+        <div class="col-md-12">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>Publicado em: {{ post.data_publicacao }}</p>
+                    </div>
+                    <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h1>
+                    <p class="col-md-8"><a href="{% url 'post' post.id %}">{{ post.texto|linebreaksbr }}</a></p>
+                </div>
+            {% endfor %}            
+        </div>
+    </div>
 </div>
 {% endblock %}
-
