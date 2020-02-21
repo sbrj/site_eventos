@@ -3,9 +3,9 @@
 {% block content %}
 <div class="bg-dark fundao container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block; color: antiquewhite;">
     {% for post in posts %}
-        <p>Publicado em: {{ post.data_publicacao }}</p>
-        <h2>{{ post.title }}</h1>
-        <p>{{ post.texto|linebreaksbr }}</p>
+        <p><a href="{% url 'post' post.id %}">Publicado em: {{ post.data_publicacao }}</a></p>
+        <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h1>
+        <p><a href="{% url 'post' post.id %}">{{ post.texto|linebreaksbr }}</a></p>
     {% endfor %}
 </div>
 {% endblock %}

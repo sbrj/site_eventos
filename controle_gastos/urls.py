@@ -21,7 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listagem, name='todos_eventos'),
     path('novo/', novo_evento, name='novo_even'),
-    path('update/<int:id>/', update, name='atualizar'),
-    path('delete/<int:id>/', delete, name='deletar'),
+    path('update/<str:id>/', update, name='atualizar'),
+    path('delete/<str:id>/', delete, name='deletar'),
     path('posts/', postagens, name='postagens'),
+    path('post/<str:id>/', post, name='post'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Evento, Email, Post
 from .forms import EventoForm, EmailForm
@@ -15,7 +15,7 @@ def novo_evento(request):
 
 def update(request, id):
     data = {}
-    evento = Evento.objects.get(pk=id)
+    evento = get_object_or_404(Evento, pk=id)
     form = EventoForm(request.POST or None, instance=evento)
     if form.is_valid():
         form.save()
@@ -41,6 +41,13 @@ def postagens(request):
     data['posts'] = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by('data_publicacao')
     data['email_html'] = email_f(request.POST)
     return render(request, 'contas/postagens.html', data)
+
+def post(request, id):
+    data = {}
+    artigo = get_object_or_404(Post, pk=id)
+    data['email_html'] = email_f(request.POST)
+    data['post'] = artigo
+    return render(request, 'contas/post.html', data)
 
 def email_f(request):
     email_form = EmailForm(request or None)

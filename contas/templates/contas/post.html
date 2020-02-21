@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {% if evento %}
+        Show {{evento.show}}
+    {% else %}
+        Novo evento
+    {% endif %}
+{% endblock %}  
+{% block content %}
+<div class="bg-dark fundao container-fluid base_titulo" style="margin-top: 60px; height: 500px; display: inline-block; color: antiquewhite;">
+        <p>Publicado em: {{ post.data_publicacao }}</p>
+        <h2>{{ post.title }}</h1>
+        <p>{{ post.texto|linebreaksbr }}</p>
+</div>
+{% endblock %}
