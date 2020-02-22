@@ -21,8 +21,7 @@ class PostForm(ModelForm):
     class Meta:
         model = Post
         widgets = {
-            'title': TextInput(attrs={'placeholder': 'Digite o título'}),
-            'texto': TextInput(attrs={'placeholder': 'Digite o texto desejado aqui'}),
+            'titulo': TextInput(attrs={'placeholder': 'Digite o título'}),
         }
-        fields = ['title', 'texto']
+        fields = ['titulo', 'texto']
         

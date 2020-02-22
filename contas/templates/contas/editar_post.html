@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
-
-{% block content %}
+{% load static %}
+{% block title %}
     {% if post %}
-        <h2>Editar post</h2>
-    {% else %}
-        <h2>Novo post</h2>
+        {{ post.titulo }}
     {% endif %}
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form_post_html }}
-        <button type="submit" class="save btn btn-success" value="salvar">Salvar</button>
-    </form>
+{% endblock %} 
+{% block content %}
+    <div class="post text-white page-header">
+        {% if post %}
+            <h2>{{ post.titulo }}</h2>
+        {% else %}
+            <h2>Novo post</h2>
+        {% endif %}
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            {{ form_post_html.as_p }}
+            <button type="submit" class="save btn btn-success" value="salvar">Salvar</button>
+        </form>
+    </div>
 {% endblock %}
 

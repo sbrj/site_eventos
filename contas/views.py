@@ -50,6 +50,7 @@ def post(request, id):
     return render(request, 'contas/post.html', data)
 
 def novo_post(request):
+    email = email_f(request.POST)
     if request.method == "POST":
         n_post = PostForm(request.POST)
         if n_post.is_valid():
@@ -60,21 +61,22 @@ def novo_post(request):
             return redirect('novo_post')
     else:
         n_post = PostForm()
-    return render(request, 'contas/editar_post.html', {'form_post_html': n_post})
+    return render(request, 'contas/editar_post.html', {'form_post_html': n_post, 'email_html': email})
 
 def editar_post(request, id):
-     post = get_object_or_404(Post, pk=id)
-     if request.method == "POST":
-         n_post = PostForm(request.POST, instance=post)
-         if n_post.is_valid():
-             post = n_post.save(commit=False)
-             post.autor = request.user
-             post.data_publicacao = timezone.now()
-             post.save()
-             return redirect('post', post.id)
-     else:
-         form = PostForm(instance=post)
-     return render(request, 'contas/editar_post.html', {'form_post_html': form})
+    post = get_object_or_404(Post, pk=id)
+    email = email_f(request.POST)
+    if request.method == "POST":
+        n_post = PostForm(request.POST, instance=post)
+        if n_post.is_valid():
+            post = n_post.save(commit=False)
+            post.autor = request.user
+            post.data_publicacao = timezone.now()
+            post.save()
+            return redirect('post', post.id)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'contas/editar_post.html', {'form_post_html': form, 'post': post, 'email_html': email})
 
 def email_f(request):
     email_form = EmailForm(request or None)

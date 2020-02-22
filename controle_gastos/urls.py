@@ -26,6 +26,6 @@ urlpatterns = [
     path('posts/', postagens, name='postagens'),
     path('post/<str:id>/', post, name='post'),
     path('post/novo', novo_post, name="novo_post"),
-    path('post/<int:id>/editar/', editar_post, name='editar_post'),
+    path('post/<str:id>/editar/', editar_post, name='editar_post'),
 
 ]
