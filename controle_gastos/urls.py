@@ -20,9 +20,12 @@ from contas.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', listagem, name='todos_eventos'),
-    path('novo/', novo_evento, name='novo_even'),
+    path('evento/novo/', novo_evento, name='novo_even'),
     path('update/<str:id>/', update, name='atualizar'),
     path('delete/<str:id>/', delete, name='deletar'),
     path('posts/', postagens, name='postagens'),
     path('post/<str:id>/', post, name='post'),
+    path('post/novo', novo_post, name="novo_post"),
+    path('post/<int:id>/editar/', editar_post, name='editar_post'),
+
 ]

@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput
-from .models import Evento, Email
+from .models import Evento, Email, Post
 
 class EventoForm(ModelForm):
     class Meta:
@@ -16,4 +16,13 @@ class EmailForm(ModelForm):
         labels = {
             'email_f': (''),
             }
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        widgets = {
+            'title': TextInput(attrs={'placeholder': 'Digite o título'}),
+            'texto': TextInput(attrs={'placeholder': 'Digite o texto desejado aqui'}),
+        }
+        fields = ['title', 'texto']
         

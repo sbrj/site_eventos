@@ -8,15 +8,15 @@
 {% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
-    <div class="container-fluid bg-dark fundao">
-        <div class="form-control">
+    <div class="fundao formulario container-fluid bg-dark fundao">
+        <div class="">
             <h1>Adicione um novo evento</h1>
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if evento %}
                     <input type="submit" class="btn btn-success" value="Atualizar Evento">
-                    <button class="btn btn-success"><a href="{% url 'deletar' evento.id  %}">Remover</a></button>
+                    <a href="{% url 'deletar' evento.id  %}"><button class="btn btn-success">Remover</button></a>
                 {% else %}
                     <input type="submit" class="btn btn-success" value="Criar Evento">
                 {% endif %}

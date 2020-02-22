@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Evento, Email, Post
-from .forms import EventoForm, EmailForm
+from .forms import EventoForm, EmailForm, PostForm
 import datetime
 
 def novo_evento(request):
@@ -19,7 +19,7 @@ def update(request, id):
     form = EventoForm(request.POST or None, instance=evento)
     if form.is_valid():
         form.save()
-        return redirect('/todos_eventos')
+        return redirect('todos_eventos')
     data['form'] = form
     data['evento'] = evento
     data['email_html'] = email_f(request.POST) 
@@ -48,6 +48,33 @@ def post(request, id):
     data['email_html'] = email_f(request.POST)
     data['post'] = artigo
     return render(request, 'contas/post.html', data)
+
+def novo_post(request):
+    if request.method == "POST":
+        n_post = PostForm(request.POST)
+        if n_post.is_valid():
+            post = n_post.save(commit=False)
+            post.autor = request.user
+            post.data_publicacao = timezone.now()
+            post.save()
+            return redirect('novo_post')
+    else:
+        n_post = PostForm()
+    return render(request, 'contas/editar_post.html', {'form_post_html': n_post})
+
+def editar_post(request, id):
+     post = get_object_or_404(Post, pk=id)
+     if request.method == "POST":
+         n_post = PostForm(request.POST, instance=post)
+         if n_post.is_valid():
+             post = n_post.save(commit=False)
+             post.autor = request.user
+             post.data_publicacao = timezone.now()
+             post.save()
+             return redirect('post', post.id)
+     else:
+         form = PostForm(instance=post)
+     return render(request, 'contas/editar_post.html', {'form_post_html': form})
 
 def email_f(request):
     email_form = EmailForm(request or None)

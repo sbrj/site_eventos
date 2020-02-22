@@ -10,10 +10,12 @@
     {% if post.data_publicacao %}
         <div class="date">
             <p>Publicado em: {{ post.data_publicacao }}</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'editar_post' post.id %}"><i class="fas fa-edit"></i></a>
+            {% endif %}
         </div>
     {% endif %}
-        <h2>{{ post.title }}</h2>
-        <p class="col-md-8">{{ post.texto|linebreaksbr }}</p>
-</div>
+    <h2>{{ post.title }}</h2>
+    <p class="col-md-8">{{ post.texto|linebreaksbr }}</p>
 </div>
 {% endblock %}

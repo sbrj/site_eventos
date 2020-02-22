@@ -4,10 +4,6 @@ h1 a, h2 a {
     text-decoration: none !important;
 }
 
-.container-fluid {
-    padding: 50px 0px !important;
-}
-
 .content {
     margin-left: 40px;
 }
@@ -46,7 +42,7 @@ h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 
-.date {
+.date, .date a {
     color: #828282;
     float: right;
 }

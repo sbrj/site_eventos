@@ -26,7 +26,7 @@ class Evento(models.Model):
         return self.show
 
 class Email(models.Model):
-    email_f = models.EmailField() 
+    email_f = models.EmailField(blank=True) 
 
     class Meta:
         verbose_name_plural = "emails"
