@@ -31,7 +31,7 @@
                 <tbody class="corpo-tabela">
                     {% for evento in eventos %}
                     <tr>
-                        <th scope="row"><a href="{% url 'atualizar' evento.id %}">{{evento.data.date}}</a></th>
+                        <th scope="row"><a href="{% url 'atualizar' evento.id %}">{{evento.mes_ano}}</a></th>
                         <td><a href="{% url 'atualizar' evento.id %}">{{evento.data.time}}</a></td>
                         <td><a href="{% url 'atualizar' evento.id %}">{{evento.show}}</a></td>
                         <td><a href="{% url 'atualizar' evento.id %}">{{evento.categoria}}</a></td>

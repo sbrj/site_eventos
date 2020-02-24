@@ -153,6 +153,34 @@ th {
     margin-bottom: 10px;
 }
 
+.form-control {
+    width: 90% !important;
+    display: inline-block !important;
+}
+
+/* Search */
+
+.fas.fa-search {
+    position: absolute;
+    right: 6px;
+    cursor: pointer;
+}
+
+.search-div {
+    padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+
+/* Filter */
+
+.filter-div {
+    margin-bottom: 15px;
+    padding: 0;
+}
+
 /* Footer */
 
 .footer {

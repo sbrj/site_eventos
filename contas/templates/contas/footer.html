@@ -7,13 +7,23 @@
                     <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu email.</small>
                     <form method="POST">
                     {% csrf_token %}
-                    {{ email_html }}
-                    <input type="submit" class="btn btn-success" value="Enviar">
+                    <div class="">
+                        {{ email_html }}
+                        <input type="submit" class="btn btn-success" value="Enviar">
+                    </div>
                     </form>
                 </div>
             </div>
             <div class="footer-bloco col-md text-center">
-                Pesquise por Show
+                <div class="text-center search-div form-group col-md-10">
+                    <p class="">Gostaria de encontrar um show/evento?</p>
+                    <small id="emailHelp" class="form-text text-muted">Posts não estão inclusos nessa busca.</small>
+                    <form method="GET" id="search-form">
+                        <div><input class="form-control" type="text" id="search" name="search" placeholder="Pesquise por Show" value="{{ request.GET.search }}">
+                            <span><i class="fas fa-search search-div" id=search-btn></i></span>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="footer-bloco col-md text-center">
                 Facebook Beco das garrafas

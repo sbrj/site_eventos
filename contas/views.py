@@ -32,13 +32,17 @@ def delete(request, id):
 
 def listagem(request):
     data = {}
-    data['eventos'] = Evento.objects.all()
     data['email_html'] = email_f(request.POST)  
+    search = request.GET.get('search')
+    if search:
+        data['eventos'] = Evento.objects.filter(show__icontains=search)
+    else:
+        data['eventos'] = Evento.objects.all().order_by('data')
     return render(request, 'contas/listagem.html', data)
 
 def postagens(request):
     data ={}
-    data['posts'] = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by('data_publicacao')
+    data['posts'] = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by('-data_publicacao')
     data['email_html'] = email_f(request.POST)
     return render(request, 'contas/postagens.html', data)
 
