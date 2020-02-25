@@ -6,11 +6,11 @@
                     <p class="">Digite seu endereço de e-mail para assinar este blog e receber notificações de novas publicações por e-mail.</p>
                     <small id="emailHelp" class="form-text text-muted">Nós nunca compartilharemos seu email.</small>
                     <form method="POST">
-                    {% csrf_token %}
-                    <div class="">
-                        {{ email_html }}
-                        <input type="submit" class="btn btn-success" value="Enviar">
-                    </div>
+                        {% csrf_token %}
+                        <div class="">
+                            {{ email_html }}
+                            <input type="submit" class="btn btn-success" value="Enviar">
+                        </div>
                     </form>
                 </div>
             </div>

@@ -19,7 +19,7 @@ class Evento(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now=False)
     descricao = models.TextField(null=True, blank=True)
-    imagem = models.ImageField(upload_to='img_evento', blank=True)
+    imagem = models.ImageField(upload_to='img_evento/', blank=True)
 
 
     class Meta:
@@ -48,7 +48,7 @@ class Post(models.Model):
     texto = models.TextField(blank=True, null=True)
     data_criacao = models.DateTimeField(default=timezone.now)
     data_publicacao = models.DateTimeField(blank=True, null=True)
-    imagem = models.ImageField(upload_to='img_post', blank=True)
+    imagem = models.ImageField(upload_to='img_post/', blank=True)
 
 
     class Meta:

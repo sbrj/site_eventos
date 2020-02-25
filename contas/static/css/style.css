@@ -76,17 +76,28 @@
     font-weight: bold;
 }
 
-.table th, .table th a:hover, .table td, .table td a:hover {
+.tabela {
+    width: 100%;
+}
+
+.tabela th, .tabela th a:hover, .tabela td, .tabela td a:hover {
     border: none !important;
     border-color: unset;
     text-decoration: none;
     color: white;
+    font-size: 1.3rem !important;
+    height: 50px;
+}
+
+.btn_evento {
+    margin-top: 20px;
 }
 
 .base_titulo {
     margin-top: 50px !important;
     padding: 0;
     display: inline;
+    justify-content: center;
 }
 
 .base_titulo h3 {

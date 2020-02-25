@@ -18,7 +18,7 @@
                         <p>Publicado em: {{ post.data_publicacao }}</p>
                     </div>
                     <h2><a href="{% url 'post' post.id %}">{{ post.titulo }}</a></h2>
-                    <p class="col-md-8"><a href="{% url 'post' post.id %}">{{ post.texto|linebreaksbr }}</a></p>
+                    <p class="col-md-8 text-justify"><a href="{% url 'post' post.id %}">{{ post.texto|linebreaksbr }}</a></p>
                 </div>
             {% endfor %}            
         </div>

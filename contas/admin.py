@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 
 class EventosAdmin(admin.ModelAdmin):
-    list_display = ('show', 'data', 'categoria', 'valor')
+    list_display = ('show', 'data', 'categoria', 'valor', 'imagem')
 
     def show_info(self, obj):
         return obj

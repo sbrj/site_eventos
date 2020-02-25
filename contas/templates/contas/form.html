@@ -7,6 +7,7 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+<hr class="featurette-divider">
 {% if user.is_authenticated %}
     <div class="fundao formulario container-fluid bg-dark fundao">
         <div class="text-white">
@@ -20,15 +21,39 @@
                 {% else %}
                     <input type="submit" class="btn btn-success" value="Criar Evento">
                 {% endif %}
-                    <button class="btn btn-success"><a href="{% url 'todos_eventos' %}">Voltar</a></button>
+                <a href="{% url 'todos_eventos' %}"><button class="btn btn-success">Voltar</button></a>
             </form>
         </div>
     </div>
 {% else %}
-    <div>{{evento.data.date}}</div>
-    <div>{{evento.data.time}}</div>
-    <div>{{evento.show}}</div>
-    <div>{{evento.categoria}}</div>
-    <div>{{evento.valor}}</div>
+    <div class="container-fluid post bg-dark text-white">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h1>{{evento.show}}</h1>
+                <h2>Data: {{evento.data.date}}</h2>
+                <h3>Hora: {{evento.data.time}}</h3>
+                <h3>Categoria: {{evento.categoria}}</h3>
+                <h3>Valor em R$: {{evento.valor}}</h3>
+            </div>
+            <div class="col-md-5">
+                {% if evento.imagem %}
+                    <img class="featurette-image img-fluid mx-auto" id="blogImage" src="{{evento.imagem.url}}"/>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endif %}
+<hr class="featurette-divider">
+<hr class="featurette-divider">
+<div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    </div>
+    <div class="col-md-5">
+        {% if evento.imagem %}
+            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" id="blogImage" src="{{evento.imagem.url}}" alt="{{evento.imagem}}"/>
+        {% endif %}
+    </div>
+  </div>
 {% endblock %}

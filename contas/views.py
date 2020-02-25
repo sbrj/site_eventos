@@ -11,6 +11,7 @@ def novo_evento(request):
         form.save()
         return redirect('todos_eventos')
     data['form'] = form
+    data['email_html'] = email_f(request.POST) 
     return render(request, 'contas/form.html', data)
 
 def update(request, id):

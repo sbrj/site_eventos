@@ -15,7 +15,17 @@
             {% endif %}
         </div>
     {% endif %}
-    <h2>{{ post.titulo }}</h2>
-    <p class="col-md-8">{{ post.texto|linebreaksbr }}</p>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2>{{ post.titulo }}</h2>
+            <p class="text-justify">{{ post.texto|linebreaksbr }}</p>
+        </div>
+        <div class="col-md-5">
+            {% if post.imagem %}
+                <img class="featurette-image img-fluid mx-auto" id="blogImage" src="{{post.imagem.url}}"/>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}

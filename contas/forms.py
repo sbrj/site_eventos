@@ -4,7 +4,7 @@ from .models import Evento, Email, Post
 class EventoForm(ModelForm):
     class Meta:
         model = Evento
-        fields = ['show', 'valor', 'categoria', 'data', 'descricao' ]
+        fields = ['show', 'valor', 'categoria', 'data', 'descricao', 'imagem' ]
 
 class EmailForm(ModelForm):
     class Meta:
@@ -23,5 +23,5 @@ class PostForm(ModelForm):
         widgets = {
             'titulo': TextInput(attrs={'placeholder': 'Digite o título'}),
         }
-        fields = ['titulo', 'texto']
+        fields = ['titulo', 'texto', 'imagem']
         
